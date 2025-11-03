@@ -1,97 +1,78 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>securePass</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="icon.jpg" type="image/jpeg">
+    <link rel="icon" href="img/icon.jpg" type="image/jpeg">
 
-
-
-
-<!-- Firebase (compat SDK) -->
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-
-<!-- I tuoi script -->
-<script src="js/firebase-config.js"></script>
-<script src="js/encryption.js"></script>
-<script src="js/domElements.js"></script>
-<script src="js/auth.js"></script>
-<script src="js/firestore.js"></script>
-<script src="js/vault.js"></script>
-<script src="js/main.js"></script>
-
+    <!-- Firebase compat --> 
+     <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script> 
+                                                                                                     
+    <!-- Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/encryption.js"></script>
+    <script src="js/domElements.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/firestore.js"></script>
+    <script src="js/vault.js"></script>
+    <script src="js/main.js"></script>
 </head>
 <body>
     <div class="container">
-        <!-- Login/Register -->
-        <div id="login-container" class="login-container">
-            <h1>securedPass</h1>
-            <div id="message-container"></div>
-            
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Inserisci la tua email" />
-            </div>
-            
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Inserisci la password" />
-            </div>
-            
-            <button id="loginBtn" class="btn">Accedi</button>
-            <button id="registerBtn" class="btn btn-secondary">Registrati</button>
-                        <p class="privacy-note">
-            Prima leggi la privacy policy <a href="privacy.pdf" target="_blank">qui</a>
-            </p>
-            </div>
+        <h1>securePass</h1>
+        <div id="message-container"></div>
+
+       <!-- Login/Register -->
+<div id="login-container">
+  <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Inserisci la tua email">
+  </div>
+
+  <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Inserisci la password">
+  </div>
+
+  <div class="buttons">
+      <button id="loginBtn" class="btn">Accedi</button>
+      <button id="registerBtn" class="btn btn-secondary">Registrati</button>
+  </div>
+
+  <hr style="margin: 2rem 0;">
+</div>
 
 
-        <!-- VLocked Space -->
-        <div id="vault" class="vault">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                <h1>La tua dashboard criptata</h1>
+        <!-- Vault Dashboard -->
+        <div id="vault">
+            <div class="vault-header">
+                <h2>Dashboard Criptata</h2>
                 <button id="logoutBtn" class="btn btn-danger">Logout</button>
             </div>
 
             <div id="vault-message-container"></div>
 
-            <!-- Add Password Form -->
+            <!-- Add Password -->
             <div class="password-form">
-                <h2>Aggiungi Nuova Password</h2>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="site">Sito/Servizio</label>
-                        <input type="text" id="site" placeholder="es. Google, Facebook" />
-                    </div>
-                    <div class="form-group">
-                        <label for="username">Username/Email</label>
-                        <input type="text" id="username" placeholder="Username o email" />
-                    </div>
-                    <div class="form-group">
-                        <label for="passwordValue">Password</label>
-                        <input type="password" id="passwordValue" placeholder="Password" />
-                    </div>
-                    <div class="form-group">
-                        <button id="savePassword" class="btn">Salva</button>
-                    </div>
-                </div>
+                <input type="text" id="site" placeholder="Sito/Servizio">
+                <input type="text" id="username" placeholder="Username/Email">
+                <input type="password" id="passwordValue" placeholder="Password">
+                <button id="savePassword" class="btn">Salva</button>
             </div>
 
             <!-- Search -->
-            <div class="search-box">
-                <input type="text" id="search" placeholder="🔍 Cerca per nome sito..." />
-            </div>
+            <input type="text" id="search" placeholder="🔍 Cerca per nome sito..." class="search-box">
 
             <!-- Password Table -->
             <table class="password-table">
                 <thead>
                     <tr>
-                        <th>Sito/Servizio</th>
+                        <th>Sito</th>
                         <th>Username</th>
                         <th>Password</th>
                         <th>Azioni</th>
@@ -104,5 +85,13 @@
         </div>
     </div>
 
+    <footer class="footer">
+        <p>
+            <a href="privacy.pdf" target="_blank">Privacy Policy</a> | 
+            <a href="tos.pdf" target="_blank">Terms of Service</a> | 
+            <a href="support.html">Support</a>
+        </p>
+        <p>&copy; 2025 securePass</p>
+    </footer>
 </body>
 </html>

@@ -1,198 +1,165 @@
-/* 🟢 MINIMAL CYBER GREEN UI – Complete Version */
-
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+body, html {
+    height: 100%;
     font-family: 'Poppins', sans-serif;
-    background: #000;
-    color: #d8ffd8;
+    background: #f5f5f5;
+    color: #333;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    flex-direction: column;
 }
 
-/* ─── CONTAINER ──────────────────────────────── */
-
+/* CONTAINER */
 .container {
-    width: 100%;
     max-width: 850px;
-    padding: 2.5rem;
-    border: 1px solid #00ff80;
-    border-radius: 16px;
-    background: #050505;
-    box-shadow: 0 0 40px rgba(0,255,128,0.05);
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    flex: 1;
 }
 
-/* ─── TITOLI ─────────────────────────────────── */
+/* HIDDEN */
+.hidden {
+    display: none;
+}
+
+/* HEADERS */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
 
 h1 {
-    text-align: center;
-    font-size: 2.2rem;
-    color: #00ff80;
-    margin-bottom: 2.5rem;
-    letter-spacing: 2px;
+    font-size: 2rem;
 }
 
-/* ─── FORM ───────────────────────────────────── */
-
-.form-group {
-    margin-bottom: 1.8rem;
-}
-
-label {
-    display: block;
-    font-weight: 600;
-    color: #00ff80;
-    margin-bottom: 0.7rem;
-    font-size: 0.95rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
+/* FORM */
+.form-group, .form-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
 }
 
 input {
-    width: 100%;
     padding: 10px;
-    background: #0a0a0a;
-    border: 1px solid #00ff80;
-    border-radius: 8px;
-    color: #d8ffd8;
-    font-size: 15px;
-    transition: 0.2s;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
 }
 
 input:focus {
+    border-color: #007bff;
     outline: none;
-    border-color: #00ff80;
-    box-shadow: 0 0 8px #00ff80;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
 }
 
-/* ─── BUTTONS ────────────────────────────────── */
-
+/* BUTTONS */
 .btn {
-    display: inline-block;
-    background: #00ff80;
-    color: #000;
-    font-weight: 600;
-    border: none;
-    border-radius: 8px;
     padding: 8px 16px;
-    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
     cursor: pointer;
-    margin-top: 0.5rem;
-    margin-right: 0.5rem;
+    background: #007bff;
+    color: #fff;
     transition: 0.2s;
 }
 
 .btn:hover {
-    background: #00cc66;
-    transform: translateY(-2px);
+    background: #0056b3;
 }
 
 .btn-secondary {
-    background: #111;
-    color: #00ff80;
-    border: 1px solid #00ff80;
+    background: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
 }
 
 .btn-secondary:hover {
-    background: #00ff80;
-    color: #000;
+    background: #e0e0e0;
 }
 
 .btn-danger {
-    background: #440000;
-    color: #ffbfbf;
-    border: 1px solid #ff3333;
+    background: #dc3545;
+    color: #fff;
 }
 
 .btn-danger:hover {
-    background: #ff3333;
-    color: #000;
+    background: #c82333;
 }
 
-/* ─── STATUS MESSAGES ───────────────────────── */
-
-.status-message {
-    margin-top: 1rem;
-    text-align: center;
-    color: #aaffaa;
-    font-size: 14px;
+/* VAULT DASHBOARD */
+.vault-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
 }
 
-/* ─── PASSWORD TABLE ─────────────────────────── */
+/* SEARCH */
+.search-box {
+    width: 100%;
+    padding: 8px;
+    margin: 1rem 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
 
+/* PASSWORD TABLE */
 .password-table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 2.5rem 0.5rem;
-    background: #050505;
-    border: 1px solid #00ff80;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-top: 2rem;
+    border-collapse: collapse;
+    margin-top: 1rem;
 }
 
-.password-table th,
-.password-table td {
-    padding: 10px 0;
+.password-table th, .password-table td {
     text-align: left;
-    color: #d8ffd8;
-    font-size: 15px;
-    border-bottom: 1px solid rgba(0,255,128,0.1);
+    padding: 10px;
+    border-bottom: 1px solid #eee;
 }
 
 .password-table th {
-    color: #00ff80;
     font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    font-size: 14px;
 }
 
-.password-table tr:hover {
-    background: rgba(0,255,128,0.08);
-}
-
-.password-cell {
-    font-family: monospace;
-}
-
-.password-hidden {
+/* FOOTER */
+.footer {
+    text-align: center;
+    font-size: 0.9rem;
     color: #666;
-    cursor: pointer;
+    padding: 1rem 0;
+    margin-top: auto;
 }
 
-.toggle-password {
-    background: none;
-    border: none;
-    color: #00ff80;
-    cursor: pointer;
-    padding: 4px 6px;
-    border-radius: 6px;
+.footer a {
+    color: #666;
+    margin: 0 5px;
+    text-decoration: none;
 }
 
-.toggle-password:hover {
-    background: rgba(0,255,128,0.15);
+.footer a:hover {
+    text-decoration: underline;
 }
 
-/* ─── RESPONSIVE ────────────────────────────── */
-
+/* RESPONSIVE */
 @media (max-width: 600px) {
     .container {
-        padding: 1.5rem;
-    }
-
-    .password-table {
-        border-spacing: 1rem 0.5rem;
-        font-size: 14px;
+        padding: 1rem;
     }
 
     h1 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+    }
+
+    .password-table th, .password-table td {
+        font-size: 14px;
     }
 }
